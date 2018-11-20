@@ -1,0 +1,4 @@
+---
+deployment:
+ tasks:
+ - export DEPLOYPATH=/home/starnet1/public_html/gwinners
