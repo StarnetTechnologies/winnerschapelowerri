@@ -1,4 +1,5 @@
 ---
 deployment:
- tasks:
- - export DEPLOYPATH=/home/starnet1/public_html/gwinners
+  tasks:
+    - export DEPLOYPATH=/home/starnet1/public_html/gwinners
+    - /bin/cp * $DEPLOYPATH
