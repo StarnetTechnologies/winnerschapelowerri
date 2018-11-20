@@ -1,0 +1,96 @@
+.stream{
+    background-color: rgba(0,0,0,.8);
+    width: 100%;
+    min-height: 500px;
+    margin: 10px 0;
+}
+#offline-overlay{
+    padding: 20% 0;
+}
+[data-side]{
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+}
+#side-toggler-container{
+    position: fixed;
+    right: 5%;
+    bottom: 20px;
+}
+
+#side-toggler{
+    display: block;
+    font-size: 50px;
+    cursor: pointer;
+}
+#side-toggler[data-toggler = 'hide']{
+    color: red;
+}
+
+#side-toggler[data-toggler='show']{
+    color: black;
+}
+
+[data-side]{
+    position: fixed;
+    bottom: 65px;
+    top: 50px;
+    z-index:100;
+}
+
+[data-side = 'hide']{
+    height: auto;
+}
+[data-side = 'hide'] #side-content{
+  display: none;
+}
+
+[data-side = 'hide'] #side-toggler{
+    color: red;
+  }
+
+[data-side = 'show']{
+    /*animation-name: showside;
+    animation-duration: 4s;*/
+    width: 83.33%;
+    left: 16.67%;
+}
+
+[data-side = 'show'] #side-content{
+display: block;
+background-color: #eee;
+padding: 20px;
+max-height: 500px;
+overflow-y: auto;
+border-radius: 5px;
+box-shadow: 0px 10px 10px rgba(0,0,0,.8);
+
+}
+
+
+@media (min-width: 768px){
+    [data-side]{
+        width: 33.33%;
+        left: 66.67%;
+    }
+    
+[data-side = 'show'] #side-content{
+      max-height: 500px;
+      overflow-y: hidden;
+  }
+  [data-side = 'show'] #side-content{
+    overflow-y: auto;
+  }
+}
+
+/*
+@keyframes showside{
+    from{
+        width: 5%;
+    }
+  to{
+      width: 83.33%;
+  }
+}
+*/
+
