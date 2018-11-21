@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/starnet1/public_html/gwinners
-    - cp server.php $DEPLOYPATH
+    - cp /home/starnet1/repositories/winnerschapelowerri/server.php $DEPLOYPATH
