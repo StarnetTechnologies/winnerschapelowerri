@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/starnet1/public_html/gwinners
-    - /bin/cp server.php $DEPLOYPATH
+    - cp server.php $DEPLOYPATH
