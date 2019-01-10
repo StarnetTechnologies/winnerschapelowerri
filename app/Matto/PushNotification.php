@@ -79,5 +79,9 @@ class PushNotification{
         return $response;
     }
 
+    public function isNotifiable($r){
+        return (isset($r['notification']) && $r['notification'] == 'true' ? true : false );
+      }
+
 }
 ?>

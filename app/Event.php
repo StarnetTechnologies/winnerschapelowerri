@@ -8,6 +8,10 @@ class Event extends Model
 {
     protected $fillable = ['title','description','location','start_at','end_at'];
 
+
+    public function imageUrl(){
+        return ($this->image !== null && $this->image !=='' ? asset('storage/images/events/'.$this->image) : asset('storage/images/events/default.png'));
+    }
     public function now(){
         return new DateTime();
     }

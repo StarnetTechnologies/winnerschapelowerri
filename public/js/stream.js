@@ -1,5 +1,6 @@
 side = document.querySelector('[data-side]');
-toggler = side.querySelector('#side-toggler');
+toggler = document.querySelector('#side-toggler');
+vid_icon = toggler.innerHTML;
 content = document.querySelector('#main');
 
 window.addEventListener('resize',function(){
@@ -16,12 +17,12 @@ function sideToggler(){
 function showside(){
     side.setAttribute('data-side','show');
     toggler.setAttribute('data-toggler','show');
-    //toggler.innerHTML = "&times";
-    main.setAttribute('class', 'col-sm-8')
+    toggler.innerHTML = "&times";
+   // main.setAttribute('class', 'col-sm-8')
 }
 function hideside(){
     side.setAttribute('data-side','hide');
     toggler.setAttribute('data-toggler','hide')
-    //toggler.innerHTML = "<<<";
-    main.setAttribute('class', 'col');
+    toggler.innerHTML = vid_icon;
+    //main.setAttribute('class', 'col');
 }

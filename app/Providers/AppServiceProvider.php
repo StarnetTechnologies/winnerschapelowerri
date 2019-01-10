@@ -2,16 +2,23 @@
 
 namespace App\Providers;
 
-use Schema;
-use View;
+
 use Illuminate\Support\ServiceProvider;
+use View;
+use Schema;
+use DateTime;
 use App\User;
 use App\Event;
+use App\Post;
 use App\Service;
 use App\Stream;
-use App\Prophetic;
+use App\Theme;
+use App\Pastor;
+use App\Gallery;
+use App\Contact;
+use App\Preference;
+use App\Testimony;
 
-use DateTime;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -45,7 +52,9 @@ class AppServiceProvider extends ServiceProvider
             }
         }
 		View::share([
-            'ADMIN'=>User::all()->first(),
+            'now' => new DateTime(),
+            'THEME' => Theme::where('month',$now->format('F'))->where('year',$now->format('Y'))->first(),
+            'PASTORS' => Pastor::all(),
             'EVENTS'=> [
                 'all' => $allEvents,
                 'past' => $past,
@@ -53,9 +62,14 @@ class AppServiceProvider extends ServiceProvider
                 'happening' => $happening
             ],
             'SERVICES' => Service::all(),
-            'STREAMS' => Stream::OrderBy('created_at','desc'),
-            'PW' => Prophetic::where('month',$now->format('F'))->where('year',$now->format('Y'))->first()
-            ]);
+            'STREAMS' => Stream::OrderBy('created_at','desc')->take(5)->get(),
+            'GALLERY' => Gallery::where('role','gallery')->get(),
+            'SLIDERS' => Gallery::where('role','slider')->get(),
+            'CONTACTS' => Contact::first(),
+            'PREF' => Preference::first(),
+            'POSTS' => Post::OrderBy('created_at','desc')->take(3)->get(),
+            'TESTIMONIES' => Testimony::OrderBy('created_at','desc')->get()
+        ]);
     }
 
     /**

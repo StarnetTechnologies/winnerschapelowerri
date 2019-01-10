@@ -1,11 +1,5 @@
 @extends('layouts.app')
-@section('styles')
-	<style>
-		body{  
-			background: linear-gradient(#000,#fff)
-		}
-	</style>
-@endsection
+
 @section('top-widget')
 	<?php $_breadcrumb = "Login" ?>
 	@include('widgets.breadcrumb')			

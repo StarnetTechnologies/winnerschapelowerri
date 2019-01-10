@@ -1,13 +1,17 @@
 @extends('layouts.app')
 
+@section('top-widget')
+	<?php $_breadcrumb = "Reset Password" ?>
+	@include('widgets.breadcrumb')			
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
 
-                <div class="panel-body">
+                <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success">
                             {{ session('status') }}

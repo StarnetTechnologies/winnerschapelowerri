@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\User;
 
 class AdminSeeder extends Seeder
 {
@@ -11,6 +12,11 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-         factory('App\User')->create();
+         //factory('App\User')->create();
+         User::create([
+            'username' => "winners",
+            'password' => bcrypt('winwin'),
+            'remember_token' => str_random(10),
+         ]);
     }
 }

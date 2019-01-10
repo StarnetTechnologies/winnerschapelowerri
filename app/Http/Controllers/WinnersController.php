@@ -5,223 +5,87 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
-use App\Event;
-use App\Service;
-use App\Prophetic;
+use App\Post;
+use App\Stream;
+use App\Contact;
+use App\Testimony;
+use App\Preference;
+use App\Announcement;
+use App\Matto\FileUpload;
+
 use App\Matto\PushNotification;
 use DateTime; 
 
 class WinnersController extends Controller
 {
+    public function home(){
+		  return view('pages.home');
+	  }
+    public function admin(){
+      return view('pages.admin')
+                    ->with('pref',Preference::all()->first())
+                    ->with('posts',Post::paginate(10))
+                    ->with('announcements',Announcement::all());
+    }
 
-  public function sendPushNotification(Request $request){
-    $this->validate($request,[ 
-      'heading' => 'required',
-      'content' => 'required',
-    ]);
-
-    $notification = new pushNotification([
-        'heading' => $request->heading,
-        'body' => $request->content
-    ]);
-    $notification->send();
-
-    return redirect()->back();
-
-}
-
-  public function newPW(Request $request){
-    $this->validate($request,[ 
-      'word' => 'required',
-      'bible_verse' => 'required',
-    ]);
-
-    $now = new DateTime();
-
-    $pw = new Prophetic();
-    $pw->word = $request->word;
-    $pw->bible_verse = $request->bible_verse;
-    $pw->note = $request->note;
-    $pw->month = $now->format('F');
-    $pw->year = $now->format('Y');
-    $pw->save();
-
-      
-    $push = new PushNotification([
-      'heading' => $pw->month.', '.$pw->year.' Prophetic Word',
-      'body' => $pw->word.' - '.$pw->bible_verse
-    ]);
-    $push->send();
-
-    return redirect()->back()->with('success',$pw->month.', '.$pw->year.' Prophetic Word published!');
-  }
-
-  public function updatePW(Request $request,$id){
-    $this->validate($request,[ 
-      'word' => 'required',
-      'bible_verse' => 'required',
-    ]);
-
-    $pw = Prophetic::find($id);
-    $pw->word = $request->word;
-    $pw->bible_verse = $request->bible_verse;
-    $pw->note = $request->note;
-    $pw->save();
-
-      
-    $push = new PushNotification([
-      'heading' => $pw->month.', '.$pw->year.' updated',
-      'body' => $pw->word.' - '.$pw->bible_verse
-    ]);
-    $push->send();
-
-    return redirect()->back()->with('success',$pw->month.', '.$pw->year.' Prophetic Word updated!');
-  }
-
-    public function addEvent(Request $request){
-      $this->validate($request,[ 
-        'title' => 'required',
-        'description' => 'required',
-        'location' => 'required',
-        'start' => 'required',
-        'end' => 'required',
-      ]);
-  
-      $event = new Event();
-      $event->title = $request->title;
-      $event->description = $request->description;
-      $event->location = $request->location;
-      $event->start_at =  $request->start;
-      $event->end_at =  $request->end;
-      $event->save();
-
-      $startDate = $event->startDate()->format('M').' '.$event->startDate()->format('d');
-      $startTime = $event->to12Hours($event->startDate());
-      $endDate = $event->endDate()->format('M').' '.$event->endDate()->format('d');
-      $endTime =  $event->to12Hours($event->endDate());
-
-      if($startDate == $endDate){
-          $timeFrame = $startDate.', '.$startTime.' to '.$endTime;
+    public function live($slug = ''){
+      if($slug === ''){
+        $stream = Stream::OrderBy('created_at','desc')->take(1)->get();
+        if($stream->count() == 1){
+          $otherStreams = Stream::where('slug','!=',$stream->first()->slug)->OrderBy('created_at','desc')->get();
         }else{
-          $timeFrame = $startDate.', '.$startDate.' to '.$endDate.', '.$endTime;
+          $otherStreams = Stream::OrderBy('created_at','desc')->get();
         }
-      
-      $push = new PushNotification([
-        'heading' => 'New Event: '.$event->title,
-        'body' => '['.$timeFrame.' @ '.$event->location.'] - '.$event->description
-      ]);
-      $push->send();
+      }
+      else{
+        $stream = Stream::where('slug',$slug)->get();
 
-      return redirect()->back()->with('success','Event <strong>'.$event->title.'</strong> created successfully');
-    }
-
-    public function updateEvent(Request $request, $id)
-    {
-      $this->validate($request,[ 
-        'title' => 'required',
-        'description' => 'required',
-        'location' => 'required',
-        'start' => 'required',
-        'end' => 'required',
-      ]);
-
-      $event = Event::find($id);
-      $event->title = $request->title;
-      $event->description = $request->description;
-      $event->location = $request->location;
-      $event->start_at =  $request->start;
-      $event->end_at =  $request->end;
-      $event->save();
-
-      $startDate = $event->startDate()->format('M').' '.$event->startDate()->format('d');
-      $startTime = $event->to12Hours($event->startDate());
-      $endDate = $event->endDate()->format('M').' '.$event->endDate()->format('d');
-      $endTime =  $event->to12Hours($event->endDate());
-
-      if($startDate == $endDate){
-          $timeFrame = $startDate.', '.$startTime.' to '.$endTime;
-        }else{
-          $timeFrame = $startDate.', '.$startDate.' to '.$endDate.', '.$endTime;
+        if($stream->count() == 1){
+            $otherStreams = Stream::where('slug','!=',$stream->first()->slug)->OrderBy('created_at','desc')->get();
+          }else{
+            $otherStreams = Stream::OrderBy('created_at','desc')->get();
+          }
         }
-      
-      $push = new PushNotification([
-        'heading' => 'The event '.$event->title.' updated!',
-        'body' => '['.$timeFrame.' @ '.$event->location.'] - '.$event->description
-      ]);
-      $push->send();
-
-      return redirect()->back()->with('success','Event <strong>'.$event->title.'</strong> updated successfully');
-
+      return view('pages.live')->with('stream',$stream)
+                                ->with('otherStreams',$otherStreams);
+    }
+    public function pastors(){
+      return view('pages.pastors');
+    }
+    public function posts(){
+      return view('pages.posts')->with('posts',Post::OrderBy('created_at','desc')->paginate(10));
+    }
+    public function events(){
+      return view('pages.events');
+    }
+    
+    public function announcements(){
+      return view('pages.announcements')->with('announcements',Announcement::OrderBy('created_at','desc')->paginate(10));
     }
 
-    public function removeEvent($id){
-      $event = Event::find($id);
-      $event->delete();
-
-      return redirect()->back()->with('success', 'Event <strong>'.$event->title.'</strong> removed successfully');
-  }
-
-
-    public function addService(Request $request){
-      $this->validate($request,[ 
-        'title' => 'required',
-        'location' => 'required',
-        'day' => 'required',
-        'start' => 'required',
-        'end' => 'required',
-      ]);
-  
-      
-      $service = new Service();
-      $service->title = $request->title;
-      $service->location = $request->location;
-      $service->day = $request->day;
-      $service->start =  $request->start;
-      $service->end =  $request->end;
-      $service->note =  $request->note;
-      $service->save();
-
-      $push = new PushNotification([
-        'heading' => 'Service Alert: '.$service->title,
-        'body' => $service->title.' will be holding every '.$service->day.' at '.$service->location.' Time: '.$service->normalTime($service->start).' to '.$service->normalTime($service->end)
-      ]);
-      $push->send();
-      
-      return redirect()->back()->with('success','Service <strong>'.$service->title.'</strong> added successfully');
+    public function ministries(){
+      return view('pages.ministries');
     }
 
-    public function updateService(Request $request,$id){
-      $this->validate($request,[ 
-        'title' => 'required',
-        'location' => 'required',
-        'day' => 'required',
-        'start' => 'required',
-        'end' => 'required',
-      ]);
-
-      $service = Service::find($id);
-      $service->title = $request->title;
-      $service->location = $request->location;
-      $service->day = $request->day;
-      $service->start =  $request->start;
-      $service->end =  $request->end;
-      $service->note =  $request->note;
-      $service->save();
-
-      $push = new PushNotification([
-        'heading' => $service->title.' has been updated',
-        'body' => $service->title.' now holds every '.$service->day.' at '.$service->location.' Time: '.$service->normalTime($service->start).' to '.$service->normalTime($service->end)
-      ]);
-      $push->send();
-      
-      return redirect()->back()->with('success','Service <strong>'.$service->title.'</strong> added successfully');
+    public function pof(){
+      return view('pages.pof');
     }
 
-    public function removeService($id){
-        $service = Service::find($id);
-        $service->delete();
+    public function gallery(){
+      return view('pages.gallery');
+    }
 
-        return redirect()->back()->with('success','Service <strong>'.$service->title.'</strong> removed successfully');
+    public function testimonies(){
+      return view('pages.testimonies')->with('testimonies',Testimony::where('approval',1)->orderby('created_at','desc')->paginate(5));
+    }
+
+
+    public function singlePost($slug){
+      $post = Post::where('slug',$slug)->firstorfail();
+      $otherPosts = Post::where('slug','!=', $slug)->OrderBy('created_at','desc')->get();
+
+      return view('templates.single-post')->with('post',$post)
+                                          ->with('otherPosts',$otherPosts);
     }
 
   public function changePassword(Request $request){
@@ -231,7 +95,44 @@ class WinnersController extends Controller
 		$user = User::find(Auth::id());
 		$user->password = bcrypt($request->password);
 		
-		return redirect()->back()->with('success','Password changed!');
-	}
+		return redirect()->back()->with('success','Password changed');
+  }
+  
+  public function updateContacts(Request $request){
+    $contact = Contact::find(1);
+    $contact->address = $request->address;
+    $contact->phone1 = $request->phone1;
+    $contact->phone2 = $request->phone2;
+    $contact->email = $request->email;
+    $contact->facebook = $request->facebook;
+    $contact->instagram = $request->instagram;
+    $contact->twitter = $request->twitter;
+    $contact->youtube = $request->youtube;
+    $contact->save();
+
+		return redirect()->back()->with('success','Contacts updated');
+  }
+
+  public function updatePreferences(Request $request){
+    $pref = Preference::find(1);
+    $pref->welcome_address = $request->welcome_address;
+    $pref->pastor_id = $request->pastor;
+    
+    if($request->hasFile('front_image')){
+      $upload = new FileUpload($request,
+                                $name='front_image',
+                                $title = str_slug(time().'-'.$pref->pastor->fullname),
+                                $path = 'public/images/assets'
+                              );
+      if(!empty($upload->slugs)){
+        $pref->front_image = $upload->slugs[0];
+      }
+    }
+
+    $pref->save();
+
+    return redirect()->back()->with('success', 'saved!');
+
+  }
 	
 }

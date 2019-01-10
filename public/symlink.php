@@ -1,10 +1,10 @@
 <?php
-$targetFolder = '/home2/starnet1/public_html/gwinners/storage/app/public';
+$targetFolder = '/home/y71ul2b2argw/public_html/winners/winners-beta/storage/app/public';
 
-$linkFolder = '/home2/starnet1/public_html/gwinners/storage';
+$linkFolder = '/home/y71ul2b2argw/public_html/winners/winners-beta/public/storage';
 
 symlink($targetFolder, $linkFolder);
 
-echo 'Done!';
+echo 'Symblink created!';
 
 ?>

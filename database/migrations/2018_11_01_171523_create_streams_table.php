@@ -18,6 +18,7 @@ class CreateStreamsTable extends Migration
             $table->string('url');
             $table->string('title');
             $table->longText('description');
+            $table->string('slug');
             $table->timestamps();
         });
     }
