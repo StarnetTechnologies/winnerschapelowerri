@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+ Announcements
+@endsection
 @section('styles')
 <style>
 

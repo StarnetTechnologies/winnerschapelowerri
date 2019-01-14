@@ -1,8 +1,8 @@
 
 <div class="row">
     <div class="col-3">
-        <div class="text-right">
-            <img src="{{$PREF->pastor->dpUrl()}}" alt="{{$PREF->pastor->fullname}}" style="width: 100px; height: 100px; border-radius: 50%; border: 2px solid #fff">
+        <div class="text-right" style="width: 100px; height: 100px; border-radius: 50%; box-shadow: 0px 20px 20px rgba(0,0,0,.2)">
+            <img src="{{$PREF->pastor->dpUrl()}}" alt="{{$PREF->pastor->fullname}}" style="width: 100px; height: 100px; border-radius: 50%;">
         </div>
     </div>
     <div class="col-9">

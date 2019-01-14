@@ -1,8 +1,8 @@
 <div class="welcome-address-container" >
-    <div style="padding: 20px 0 ">
-        <div class="row">
+    <div style="">
+        <div class="row-eq-height">
             <div class="col-sm-8 offset-sm-2">
-                <div class="row align-items-center">
+                <div class="row align-items-end">
                     <div class="col-md-6">
                         <div >
                             <div class="text-center">
@@ -10,7 +10,7 @@
                                 <hr>
                                 <h4 class="">Our global membership is referred to as the Winners’ Family.</h4>	
                             </div>
-                                <div style="text-align: justify; line-height: 30px; padding: 20px 10px; box-shadow: 0px 10px 10px rgba(0,0,0,.2); border-radius: 5px">
+                                <div style="text-align: justify; line-height: 30px; padding: 20px 10px;">
                                 @if($PREF !==null && $PREF->welcome_address !== null && $PREF->welcome_address !== '')
                                         <p style="">{!!$PREF->welcome_address!!}</p> 
                                         <h4 class="text-right">-{{$PREF->pastor->fullname}}</h4>
@@ -20,14 +20,10 @@
                         </div>
                     </div>
                     
-                    <div  class="col-md-6">
+                    <div  class="col-md-6 d-none d-md-block" id="pastor">
                         @if($PREF !==null && $PREF->imageAvailable())
-                            <figure class="overlay-caption pastor-figure white-shadow" >
-                                <figcaption>
-                                    <!-- <h4 class="caption text-center"> Pastor Joseph Ademola AJIBADE</h4> -->
-                                </figcaption>
-                                <img src="{{$PREF->frontImageUrl()}}" alt="Winners Owerri Pastor" style="border-radius: 5px">
-                            </figure>
+                            <img src="{{$PREF->frontImageUrl()}}" alt="" height="100%">     
+
                         @endif
 
                     </div>

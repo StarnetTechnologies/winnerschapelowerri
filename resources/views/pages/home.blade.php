@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+Home
+@endsection
 @section('styles')
 	<link rel="stylesheet" href="{{asset('css/vendors/jssor.css')}}">
 	<style>
@@ -65,7 +68,7 @@
 @endsection
 
 @section('top-widget')
-<div class="bg-image" style="background-image: url({{asset('storage/images/assets/front-slider-bg.jpg')}});padding-top: 80px;">
+<div class="bg-image" style="background-image: url({{asset('storage/images/assets/front-slider-bg.jpg')}});padding-top: 50px;">
 	@include('widgets.home-front-slider')
 </div>
 @endsection
@@ -76,13 +79,15 @@
 	@include('widgets.welcome-address')
 </section>
 
-<section id="events" style="background: linear-gradient(#f2f2f2, #fff, #E1E5F0); padding-top: 50px; padding-bottom: 50px ">
-<div class="row">
-	<div class="col-md-10 offset-md-1">
-		@include('widgets.events')
-	</div>
-</div>		
-</section>
+@if(count($EVENTS['upcoming']) > 0 || count($EVENTS['happening']) > 0)
+	<section id="events" style="background: linear-gradient(#f2f2f2, #fff, #E1E5F0); padding-top: 50px; padding-bottom: 50px ">
+	<div class="row">
+		<div class="col-md-10 offset-md-1">
+			@include('widgets.events')
+		</div>
+	</div>		
+	</section>
+@endif
 
 <section id="monthly-theme" style="padding-top:80px">
 	@include('widgets.monthly-theme')
@@ -101,9 +106,9 @@
 	@include('widgets.domi-radio')
 </section>
 
-<section class="eclipse-bg" id="ministries"  style="padding:40px 0">
+<!-- <section class="eclipse-bg" id="ministries"  style="padding:40px 0">
 	@include('widgets.ministries')
-</section>
+</section> -->
 
 
 @endsection

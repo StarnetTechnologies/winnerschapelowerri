@@ -4,8 +4,18 @@
 		<meta name="theme-color" content="rgba(255,0,0,1)">
 		<!-- CSRF Token -->
 		<meta name="csrf-token" content="{{ csrf_token() }}">
-
-		<title>Winners Chapel Owerri</title>
+		<meta name="description" content="Official website of Living Faith Church (Winners Chapel) Owerri">
+		<meta name="keywords" content="Winners, Winners chapel, LFC, Winners chapel owerri, owerri, church, churches, christian ">
+		<meta property="og:title" content="Winners Chapel Owerri">
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="{{config('app.url')}}">
+		<meta property="og:image" content="{{asset('storage/images/assets/winners-logo.png')}}">
+		<meta property="og:image:type" content="image/png">
+		<meta property="og:image:width" content="225">
+		<meta property="og:image:height" content="225">
+		<meta property="og:image:alt" content="Winners Chapel Owerri">
+		<meta property="og:description" content="Official website of Living Faith Church (Winners Chapel) Owerri">
+		<title>Winners Chapel Owerri - @yield('title')</title>
 		
 		<link rel="shortcut icon" type="image/png" href="{{asset('storage/images/assets/winners-logo.png')}}"/>
 		

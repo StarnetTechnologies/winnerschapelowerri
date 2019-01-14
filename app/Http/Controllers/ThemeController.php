@@ -57,7 +57,7 @@ class ThemeController extends Controller
           'bible_verse' => 'required',
         ]);
     
-        $theme = Theme::find($id);
+        $theme = Theme::findorfail($id);
         $theme->theme = $request->theme;
         $theme->bible_verse = $request->bible_verse;
         $theme->note = $request->note;

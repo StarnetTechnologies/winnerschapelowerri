@@ -24,6 +24,7 @@ Route::get('/pastors','WinnersController@pastors')->name('pastors');
 Route::get('/gallery','WinnersController@gallery')->name('gallery');
 Route::get('/testimonies','WinnersController@testimonies')->name('testimonies');
 Route::post('/testimonies','TestimonyController@store')->name('submit.testimony');
+Route::get('/wsf','WinnersController@wsf')->name('wsf');
 
 Route::group(['prefix'=>'admin','middleware' => 'auth'],function(){
 	Route::get('/','WinnersController@admin')->name('admin');
@@ -71,6 +72,9 @@ Route::group(['prefix'=>'admin','middleware' => 'auth'],function(){
 	Route::put('/updateprefs','WinnersController@updatePreferences')->name('update.preferences');
 	
 	Route::put('/testimonies/action','TestimonyController@action')->name('testimony.action');
+	
+	Route::post('/wsf','WinnersController@uploadWSF')->name('upload.wsf');
+
 });
 
 Auth::routes();

@@ -125,6 +125,10 @@ class EventsController extends Controller
       public function discard($id){
         $event = Event::find($id);
         $event->delete();
+        $image = public_path().'/storage/images/events/'.$event->image;
+        if(file_exists($image)){
+          unlink($image);
+        }
   
         return redirect()->back()->with('success', 'Event <strong>'.$event->title.'</strong> removed successfully');
     }

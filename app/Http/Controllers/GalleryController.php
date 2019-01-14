@@ -39,10 +39,12 @@ class GalleryController extends Controller
     }
 
     public function delete($id){
-        $photo = Gallery::find($id);
-        $url = $photo->imageUrl();
+        $photo = Gallery::findorfail($id);
         $photo->delete();
-        Storage::delete($url);
+        $image = public_path().'/storage/images/gallery/'.$photo->url;
+        if(file_exists($image)){
+            unlink(public_path().'/storage/images/gallery/'.$photo->url);
+        }
         return redirect()->back()->with('success','Photo deleted');
     }
 }

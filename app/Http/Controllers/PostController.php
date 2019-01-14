@@ -55,7 +55,7 @@ class PostController extends Controller
           'body' => 'required',
         ]);
     
-        $post = Post::find($id);
+        $post = Post::findorfail($id);
         $post->title = $request->title;
         $post->body = $request->body;
 
@@ -77,9 +77,13 @@ class PostController extends Controller
     }
 
     public function discard($id){
-        $post = Post::find($id);
+        $post = Post::findorfail($id);
         $post->delete();
-  
+        $image = public_path().'/storage/images/posts/'.$post->image;
+        if(file_exists($image)){
+          unlink($image);
+        }
+
         return redirect()->back()->with('success', 'Post <strong>'.$post->title.'</strong> removed successfully');
     }
   

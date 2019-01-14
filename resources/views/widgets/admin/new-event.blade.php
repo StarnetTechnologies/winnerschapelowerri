@@ -1,4 +1,4 @@
-        <form class="has-image-upload" method="POST" action="{{ route('add.event') }}">
+        <form class="has-image-upload" method="POST" action="{{ route('add.event') }}" enctype="multipart/form-data">
 			{{ csrf_field() }}
 					<div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
 						 <label class="control-label">Event Title:</label>

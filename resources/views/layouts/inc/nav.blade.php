@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg fixed-top">
 	<!-- Branding Image -->
 		<a class="navbar-brand" href="{{ url('/') }}" >
-		<img src="{{asset('storage/images/assets/winners-logo.png')}}" width="30px" height="30px" alt="Winners Chapel Owerri" style=""> Living Faith Church
+		<img src="{{asset('storage/images/assets/lfc-owerri.png')}}" alt="Winners Chapel Owerri" style="">
 	</a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,18 +19,21 @@
 				<div class="nav-dropdown">
 						<ul class="p-0">
 							<li>
+								<a href="{{route('wsf')}}" class="nav-link">WSF</a>
+							 </li>
+							<li>
 								<a href="{{route('ministries')}}" class="nav-link">Ministries</a>
 							 </li>
 							 <li>
 								<a href="{{route('pastors')}}" class="nav-link">Pastors</a>
 							 </li>
-
-							 <li>
-								<a href="{{route('pof')}}" class="nav-link">Mandate & Pillars of Faith</a>
-							 </li>
 							 <li>
 								<a href="{{route('gallery')}}" class="nav-link">Gallery</a>
 							 </li>
+							 <li>
+								<a href="{{route('pof')}}" class="nav-link">Mandate & Pillars of Faith</a>
+							 </li>
+
 						</ul>
 				</div>
 			</li>	

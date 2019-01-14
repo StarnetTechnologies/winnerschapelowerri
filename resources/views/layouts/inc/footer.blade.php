@@ -63,7 +63,7 @@
 					<li><a href="http://www.davidoyedepoministries.org/" target="_blank">David Oyedepo <i class="fa fa-external-link-alt"></i></a> </li>
 					<li><a href="http://faithoyedepo.org/" target="_blank">Faith Oyedepo <i class="fa fa-external-link-alt"></i></a> </li>
 					<li><a href="http://davidabioye.org.ng/" target="_blank">David Abioye <i class="fa fa-external-link-alt"></i></a> </li>
-					<li><a href="http://domimedia.org/" target="_blank">Online Radio (DOMI radio) <i class="fa fa-external-link-alt"></i></a> </li>
+					<li><a href="http://domimedia.org/" target="_blank"><img src="{{asset('storage/images/assets/domi-radio.png')}}" alt="DOMI radio" width="100%"></a> </li>
 				</ul>
 			</div>
 		</div>

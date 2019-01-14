@@ -43,6 +43,7 @@
                 </div>
         </div>
     @else
+    <br>
     <div class="row">
             <div class="col-md-6 offset-md-3">
                 <div class="alert alert-warning">No upcoming event</div>

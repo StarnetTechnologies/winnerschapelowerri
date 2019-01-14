@@ -59,6 +59,15 @@
 																@include('widgets.admin.new-event')
 														</div>
 
+														
+														<div class="accordion-btn" data-toggle="collapse" data-target="#upload-wsf" aria-expanded="true" aria-controls="upload-wsf">
+															<i class="fa fa-calendar"></i>  WSF Schedule
+														</div>
+														<div id="upload-wsf" class="collapse admin-panel-collapse" aria-labelledby="headingOne" data-parent="#accordion">
+																@include('widgets.admin.upload-wsf')
+														</div>
+
+
 
 														<div class="accordion-btn" data-toggle="collapse" data-target="#change-password" aria-expanded="true" aria-controls="change-password">
 															<i class="fa fa-key"></i>  Change Admin Password

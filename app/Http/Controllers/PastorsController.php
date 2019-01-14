@@ -52,7 +52,7 @@ class PastorsController extends Controller
                                       $path = 'public/images/pastors'
                                     );
             }
-            $pastor = Pastor::find($id);
+            $pastor = Pastor::findorfail($id);
             $pastor->fullname = $request->fullname;
             $pastor->position = $request->position;
             $pastor->bio = $request->bio;
@@ -65,8 +65,13 @@ class PastorsController extends Controller
           }
   
       public function discard($id){
-          $pastor = Pastor::find($id);
+          $pastor = Pastor::findorfail($id);
           $pastor->delete();
+          $image = public_path().'/storage/images/pastors/'.$pastor->dp;
+          if(file_exists($image)){
+            unlink($image);
+          }
+  
   
           return redirect()->back()->with('success','<strong>'.$pastor->fullname.'</strong> discarded');
       }

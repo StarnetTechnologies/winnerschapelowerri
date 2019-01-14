@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+ Testimonies
+@endsection
 
 @section('styles')
 <style>

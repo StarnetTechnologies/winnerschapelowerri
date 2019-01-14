@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+ Pastor's Desk
+@endsection
+ 
 @section('styles')
 <style>
 

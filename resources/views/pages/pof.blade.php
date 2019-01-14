@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+ Pillars of Faith
+@endsection
 
 @section('styles')
 <style>
@@ -39,7 +42,7 @@
 @section('content')
 
 <div class="eclipse-bg">
-    <section id="mandate" style="padding: 20px 0">
+    <section id="mandate" style="padding: 20px 0; background-color: #DCEBF9">
         <div class="row">
             <div class="col-md-10 offset-md-1">
                 @include('widgets.mandate')

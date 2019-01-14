@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+ Pastors
+@endsection
 @section('styles')
 <style>
 	.pastor{
@@ -25,7 +27,7 @@
 @section('content')
 <div class="eclipse-bg">
 	<div style="padding: 20px 0">
-		<h3 class="text-center super-font theme-color">Pastoral Theme</h3>
+		<h3 class="text-center super-font theme-color">Pastoral Team</h3>
 	</div>
 	<div class="row">
 		<div class="col-md-8 offset-md-2">

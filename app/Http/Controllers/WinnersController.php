@@ -70,6 +70,10 @@ class WinnersController extends Controller
     public function pof(){
       return view('pages.pof');
     }
+    public function wsf(){
+      return view('pages.wsf');
+    }
+
 
     public function gallery(){
       return view('pages.gallery');
@@ -134,5 +138,20 @@ class WinnersController extends Controller
     return redirect()->back()->with('success', 'saved!');
 
   }
+
+  public function uploadWSF(Request $request){
+    $this->validate($request,[
+      'wsf' => 'required|file|mimes:pdf'
+    ]);
+    if($request->hasFile('wsf')){
+      $upload = new FileUpload($request,
+                                $name='wsf',
+                                $title = 'wsf',
+                                $path = 'public/files'
+                              );
+      return redirect()->back()->with('success', 'WSF file updated!');
+                            }
+      return redirect()->back()->with('error', 'Nothing to upload');
+                          }
 	
 }

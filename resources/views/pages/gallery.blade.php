@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+ Gallery
+@endsection
 @section('styles')
 <style>
 </style>

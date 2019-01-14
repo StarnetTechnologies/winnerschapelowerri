@@ -28,7 +28,7 @@
                         <div class="form-group">
                             <label for="featured_image" class="label-control">Featured Image</label>
                             <div class="text-center">
-                                <img src="{{asset('storage/images/pastors/default.png')}}" id="default-featured-image" style="width: 200px; height: 200px; border-radius: 50%">
+                                <img src="{{asset('storage/images/posts/default.png')}}" id="default-featured-image" style="width: 100%">
                             </div>
                             <br>
                             <input class="form-control" type="file" name="featured_image" accept="image/*" >

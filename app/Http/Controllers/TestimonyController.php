@@ -79,8 +79,7 @@ class TestimonyController extends Controller
         $this->validate($request,[
             'action' => 'required'
         ]);
-
-        if(count($request->id) == 0){
+        if(is_array($request->id) && count($request->id) == 0){
             return redirect()->back()->with('error','No testimony selected');
         }
         switch($request->action){
