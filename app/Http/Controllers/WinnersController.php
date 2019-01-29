@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
+use App\Unit;
 use App\Post;
 use App\Stream;
 use App\Contact;
@@ -55,6 +56,17 @@ class WinnersController extends Controller
     public function posts(){
       return view('pages.posts')->with('posts',Post::OrderBy('created_at','desc')->paginate(10));
     }
+    public function youths(){
+      return view('pages.youths');
+    }
+
+    public function units(){
+      return view('pages.units')->with('units',Unit::Orderby('name','asc')->get());
+    }
+    public function unit($unit){
+      return view('pages.unit')->with('unit',Unit::where('slug',$unit)->firstorfail());
+    }
+
     public function events(){
       return view('pages.events');
     }
@@ -96,14 +108,14 @@ class WinnersController extends Controller
 		$this->validate($request,[ 
 		'password' => 'required|string|min:6|confirmed']);
 		
-		$user = User::find(Auth::id());
+		$user = User::findorfail(Auth::id());
 		$user->password = bcrypt($request->password);
 		
 		return redirect()->back()->with('success','Password changed');
   }
   
   public function updateContacts(Request $request){
-    $contact = Contact::find(1);
+    $contact = Contact::findorfail(1);
     $contact->address = $request->address;
     $contact->phone1 = $request->phone1;
     $contact->phone2 = $request->phone2;
@@ -118,7 +130,7 @@ class WinnersController extends Controller
   }
 
   public function updatePreferences(Request $request){
-    $pref = Preference::find(1);
+    $pref = Preference::findorfail(1);
     $pref->welcome_address = $request->welcome_address;
     $pref->pastor_id = $request->pastor;
     

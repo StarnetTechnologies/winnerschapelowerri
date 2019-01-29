@@ -15,7 +15,7 @@
 
                     <div class="form-group {{ $errors->has('body') ? ' has-error' : '' }}">
                             <label class="control-label">Body:</label>
-                        <textarea class="form-control" name="body" placeholder="post content" autofocus>{{ old('bio')}}</textarea>
+                        <textarea class="ckeditor form-control" name="body" placeholder="post content" autofocus>{{ old('bio')}}</textarea>
                         @if ($errors->has('body'))
                                 <span class="help-block">
                                     {{ $errors->first('body') }}

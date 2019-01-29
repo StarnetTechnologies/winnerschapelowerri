@@ -45,7 +45,7 @@ class PostController extends Controller
   }
 
   public function edit($id){
-    return view('pages.admin.edit-post')->with('post', Post::find($id));
+    return view('pages.admin.edit-post')->with('post', Post::findorfail($id));
   }
 
       public function update(Request $request, $id)

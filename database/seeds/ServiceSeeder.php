@@ -14,29 +14,44 @@ class ServiceSeeder extends Seeder
     {
         $initials = array(
             [
-                'title' => 'Sample Service I',
-                'note' => 'This is the note about this service',
-                'location' => 'Address here...',
+                'title' => 'Special Healing Service',
+                'day' =>  'Tuesday',
+                'start' => '10:00:00',
+                'end' => '12:00:00'
+            ],
+            [
+                'title' => 'Communion Service',
                 'day' =>  'Wednesday',
-                'start' => '07:00:00',
-                'end' => '09:00:00'
+                'start' => '17:00:00',
+                'end' => '18:40:00'
             ],
             [
-                'title' => 'Sample Service II',
-                'note' => 'This is the note about this service II',
-                'location' => 'Address here...',
-                'day' =>  'Saturday',
-                'start' => '07:00:00',
-                'end' => '09:00:00'
-            ],
-            [
-                'title' => 'Sample Service III',
-                'note' => 'This is the note about this service III',
-                'location' => 'Address here...',
+                'title' => 'Sunday First Service',
                 'day' =>  'Sunday',
-                'start' => '07:00:00',
-                'end' => '09:00:00'
+                'start' => '06:30:00',
+                'end' => '08:30:00'
+            ],
+            [
+                'title' => 'Sunday Second Service',
+                'day' =>  'Sunday',
+                'start' => '08:30:00',
+                'end' => '10:30:00'
+            ],
+            [
+                'title' => 'Sunday Third Service',
+                'day' =>  'Sunday',
+                'start' => '10:30:00',
+                'end' => '12:30:00'
+            ],
+            [
+                'title' => 'Home Cell (WSF)',
+                'note' => 'Holds at different <a href="'.route('wsf').'">WSF locations</a>',
+                'day' =>  'Sunday',
+                'start' => '06:30:00',
+                'end' => '08:30:00'
             ]
+
+
                 );
 
         foreach($initials as $i){

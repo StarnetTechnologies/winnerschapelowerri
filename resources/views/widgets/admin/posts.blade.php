@@ -26,11 +26,7 @@
                                 <div style="padding: 10px">
                                     <h5>{{$post->title}}</h5>
                                     <p class="grey">
-                                         @if(strlen($post->body) > 500)    
-                                                {!!str_limit($post->body,500)!!} <a href="{{route('single.post',['slug' => $post->slug])}}">continue reading</a>
-                                            @else
-                                                {!!$post->body !!}
-                                            @endif
+                                                {!!$post->content()!!}
                                     </p>
                                    
                                     <div>

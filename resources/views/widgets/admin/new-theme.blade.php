@@ -28,7 +28,7 @@
                 <div class="form-group {{ $errors->has('note') ? ' has-error' : '' }}">
                     <label class="control-label">Note: <i>(Optional)</i></label>
                     <p class="help-block">A note about this month theme</p>
-                    <textarea id="note" class="form-control" name="note" placeholder="theme note,if any">{{ old('note')}}</textarea>
+                    <textarea id="note" class="ckeditor form-control" name="note" placeholder="theme note,if any">{{ old('note')}}</textarea>
                     @if ($errors->has('note'))
                             <span class="help-block">
                                 {{ $errors->first('note') }}
@@ -79,7 +79,7 @@
                 <div class="form-group {{ $errors->has('note') ? ' has-error' : '' }}">
                     <label class="col-md-3 control-label">Note: <i>(Optional)</i></label>
                     <p class="help-block">A note about this month theme</p>
-                    <textarea id="note" class="form-control" name="note" placeholder="theme note,if any" >{{$THEME->note}}</textarea>
+                    <textarea id="note" class="ckeditor form-control" name="note" placeholder="theme note,if any" >{{$THEME->note}}</textarea>
                     @if ($errors->has('note'))
                             <span class="help-block">
                                 {{ $errors->first('note') }}

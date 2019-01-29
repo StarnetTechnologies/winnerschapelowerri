@@ -30,7 +30,7 @@
 
                     <div class="form-group {{ $errors->has('body') ? ' has-error' : '' }}">
                             <label class="control-label">Message</label>
-                             <textarea  class="form-control" name="body" placeholder="Message..." autofocus>{{$post->body}}</textarea>
+                             <textarea  class="ckeditor form-control" name="body" placeholder="Message..." autofocus>{{$post->body}}</textarea>
                         @if ($errors->has('body'))
                                 <span class="help-block">
                                     {{ $errors->first('body') }}
@@ -42,7 +42,7 @@
                 <div class="col-md-4">
                     <div class="col-inner">
                         <div class="text-center">
-                            <img src="{{$post->imageUrl()}}" alt="{{$post->title}}" style="width: 200px; height: 200px; border-radius: 50%" id="prev-featured-image">
+                            <img src="{{$post->imageUrl()}}" alt="{{$post->title}}" width="100%" id="prev-featured-image">
                         </div>
                         <br>
                         <input class="form-control" type="file" name="featured_image" accept="image/*" >

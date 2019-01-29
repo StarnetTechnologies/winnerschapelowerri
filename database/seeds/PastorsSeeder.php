@@ -16,23 +16,19 @@ class PastorsSeeder extends Seeder
         $initials = array(
             [
                 'fullname' => 'Pastor Joseph Ademola Ajibade',
-                'position' => 'The Resident Pastor, LFC',
-                'bio' => 'A little bio about Pastor Joseph...' 
+                'position' => 'The Resident Pastor',
             ],
             [
-                'fullname' => 'Pastor David Akinwunmi Majekodunmi',
-                'position' => 'The Assistant Resident Pastor (Pastor 2)',
-                'bio' => 'A little bio about Pastor David...' 
+                'fullname' => 'Pastor Sigmund Ajede',
+                'position' => 'State Youth Pastor',
             ],
             [
-                'fullname' => 'Pastor Kenneth Anyaoha',
-                'position' => 'The Associate Pastor, LFC',
-                'bio' => 'A little bio about the Pastor Kenneth...' 
+                'fullname' => 'Pst Innocent Onuoha',
+                'position' => 'Associate Pastor',
             ],
             [
-                'fullname' => 'Pastor Azubuike Sigmund',
-                'position' => 'The Resident Pastor, LFC',
-                'bio' => 'A little bio about the Pastor Azubuike...' 
+                'fullname' => 'Pastor Wisdom Obi',
+                'position' => 'The Assistant Resident Pastor',
             ]
         );
         foreach($initials as $i){

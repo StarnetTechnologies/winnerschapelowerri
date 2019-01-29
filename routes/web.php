@@ -18,7 +18,9 @@ Route::get('/events','WinnersController@events')->name('events');
 Route::get('/pastors-desk','WinnersController@posts')->name('posts');
 Route::get('/pastors-desk/{slug}','WinnersController@singlePost')->name('single.post');
 Route::get('/announcements','WinnersController@announcements')->name('announcements');
-Route::get('/ministries','WinnersController@ministries')->name('ministries');
+Route::get('/youths','WinnersController@youths')->name('youths');
+Route::get('/units','WinnersController@units')->name('units');
+Route::get('/units/{unit}','WinnersController@unit')->name('unit');
 Route::get('/pof','WinnersController@pof')->name('pof');
 Route::get('/pastors','WinnersController@pastors')->name('pastors');
 Route::get('/gallery','WinnersController@gallery')->name('gallery');
@@ -36,6 +38,11 @@ Route::group(['prefix'=>'admin','middleware' => 'auth'],function(){
 	Route::get('/event/{id}/edit','EventsController@edit')->name('edit.event');
 	Route::put('/event/{id}/update','EventsController@update')->name('update.event');
 	Route::delete('/event/{id}/discard','EventsController@discard')->name('discard.event');
+	
+	Route::post('/unit/add','UnitController@store')->name('add.unit');
+	Route::get('/unit/{id}/edit','UnitController@edit')->name('edit.unit');
+	Route::put('/unit/{id}/update','UnitController@update')->name('update.unit');
+	Route::delete('/unit/{id}/discard','UnitController@discard')->name('discard.unit');
 
 	Route::post('/post/add','PostController@store')->name('add.post');
 	Route::get('/post/{id}/edit','PostController@edit')->name('edit.post');

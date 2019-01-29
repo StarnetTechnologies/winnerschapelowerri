@@ -4,7 +4,7 @@
             <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="img/spin.svg" />
         </div>
         
-        <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:380px;overflow:hidden;">
+        <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:480px;overflow:hidden;">
             @if($SLIDERS->count() > 0)
                 @foreach($SLIDERS as $slide)
                     <div>
@@ -16,7 +16,7 @@
         </div>
 
         <!-- Thumbnail Navigator -->
-        <div data-u="thumbnavigator" class="jssort101" style="position:absolute;left:0px;bottom:0px;width:980px;height:100px; background-color: #f2f2f2" data-autocenter="1" data-scale-bottom="0.75">
+        <!-- <div data-u="thumbnavigator" class="jssort101" style="position:absolute;left:0px;bottom:0px;width:980px;height:100px; background-color: #f2f2f2" data-autocenter="1" data-scale-bottom="0.75">
             <div data-u="slides">
                 <div data-u="prototype" class="p" style="width:120px;height:50px;">
                     <div data-u="thumbnailtemplate" class="t"></div>
@@ -27,7 +27,7 @@
                     </svg>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- Arrow Navigator -->
         <div data-u="arrowleft" class="jssora106" style="width:55px;height:55px;top:162px;left:30px;" data-scale="0.75">

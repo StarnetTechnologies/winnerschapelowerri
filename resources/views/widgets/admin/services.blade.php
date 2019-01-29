@@ -8,14 +8,14 @@
         </div>
         <div class="card-body admin-panel" style="padding: 0">
 
-            <!--New pastor form-->
+            <!--New service form-->
             <div style="padding: 10px">
                 <div id="new-service" class="collapse admin-panel-collapse" aria-labelledby="" data-parent="#services-accordion">
                     @include('widgets.admin.new-service')
                 </div> 
             </div>
 
-            <!--New pastor form-->
+            <!--New service form-->
 
             @if($SERVICES->count() > 0)
                 @foreach($SERVICES as $service)

@@ -1,4 +1,6 @@
-<h4>{{$service->title}}</h4>
+<div>
+    <strong>{{$service->title}}</strong>
+</div>
 @if(Auth::check())
         <a title="Update service" class="text-info" style="font-size: 16px" href="{{route('edit.service', ['id'  => $service->id])}}"><i class="fa fa-pen"></i> edit</a>
         <span title="discard service" class="text-danger" style="font-size: 16px;cursor: pointer" onclick="javascript: confirmDelete(this,'discard-service-{{$service->id}}-confirmation')"><i class="fa fa-trash"></i> discard</span>        
@@ -13,5 +15,8 @@
         </div>
 
         @endif
-<p class="grey"><i class="fa fa-map-marker"></i>  {{$service->location}}</p>
-<p class="grey"><i class="fa fa-clock"></i>  {{$service->normalTime($service->start)}} - {{$service->normalTime($service->end)}} Every {{$service->day}}</p> 
+<p class="grey"><i class="fa fa-calendar"></i>  {{$service->day}}</p>
+<p class="grey"><i class="fa fa-clock"></i>  {{$service->normalTime($service->start)}} - {{$service->normalTime($service->end)}} </p>
+@if($service->note !== null)
+    <div>{!!$service->note!!}</div> 
+@endif

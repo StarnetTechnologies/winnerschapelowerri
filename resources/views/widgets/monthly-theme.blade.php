@@ -1,4 +1,4 @@
-<div style="padding: 50px 5px">
+<div style="p-sm-15">
     @if($THEME !== null)
     <div class="row align-items-center">
         <div class="col-sm-6">
@@ -9,8 +9,8 @@
                 @endif
         </div>
         <div class="col-sm-6">
-            <div style="color: #fff; padding: 10px">
-                <h1 class="animated  bounce   infinite slow super-font monthly-theme theme-color" >{{$THEME->theme}}</span></h1>
+            <div style="padding: 10px">
+                <h1 class="animated super-font monthly-theme theme-color" >{{$THEME->theme}}</span></h1>
                 <p class="text-center">{{$THEME->bible_verse}}</p>
                 <p style="font-size: 18px" class="text-justify">{{$THEME->note}}</p>
             </div>

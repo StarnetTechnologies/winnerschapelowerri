@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg fixed-top">
 	<!-- Branding Image -->
-		<a class="navbar-brand" href="{{ url('/') }}" >
+		<a class="navbar-brand" href="{{ url('/') }}" stlye="margin: 0" >
 		<img src="{{asset('storage/images/assets/lfc-owerri.png')}}" alt="Winners Chapel Owerri" style="">
 	</a>
 
@@ -10,8 +10,8 @@
 
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item ">
-        <a class="nav-link" href="{{route('home')}}"><i class="fa fa-home"></i> Home <span class="sr-only">(current)</span></a>
+      		<li class="nav-item ">
+        		<a class="nav-link" href="{{route('home')}}"><i class="fa fa-home"></i> Home <span class="sr-only">(current)</span></a>
 			</li>
 
 			<li class="nav-item nav-item-dropdown">
@@ -21,14 +21,17 @@
 							<li>
 								<a href="{{route('wsf')}}" class="nav-link">WSF</a>
 							 </li>
-							<li>
-								<a href="{{route('ministries')}}" class="nav-link">Ministries</a>
-							 </li>
+							 <li class="nav-item ">
+								<a class="nav-link" href="{{route('events')}}"> Events</a>
+							</li>	
 							 <li>
 								<a href="{{route('pastors')}}" class="nav-link">Pastors</a>
 							 </li>
 							 <li>
 								<a href="{{route('gallery')}}" class="nav-link">Gallery</a>
+							 </li>
+							 <li>
+								<a href="{{route('units')}}" class="nav-link">Service Units</a>
 							 </li>
 							 <li>
 								<a href="{{route('pof')}}" class="nav-link">Mandate & Pillars of Faith</a>
@@ -38,23 +41,23 @@
 				</div>
 			</li>	
 
-			  <li class="nav-item ">
-        <a class="nav-link" href="{{route('events')}}"><i class="fa fa-calendar"></i> Events</a>
+			<li class="nav-item ">
+        		<a class="nav-link" href="{{route('youths')}}"><i class="fa fa-user-tie"></i> Youths</a>
 			</li>	
 
 			<li class="nav-item ">
-        <a class="nav-link" href="{{route('posts')}}"><i class="fa fa-pen"></i> Pastor's Desk</a>
+        		<a class="nav-link" href="{{route('posts')}}"><i class="fa fa-pen"></i> Pastor's Desk</a>
 			</li>	
-						<li class="nav-item ">
-        <a class="nav-link" href="{{route('announcements')}}"><i class="fa fa-bullhorn"></i> Announcements</a>
+			<li class="nav-item ">
+        		<a class="nav-link" href="{{route('announcements')}}"><i class="fa fa-bullhorn"></i> Announcements</a>
 			</li>
 
 			<li class="nav-item">
-        <a class="nav-link" href="{{route('testimonies')}}"><i class="fa fa-praying-hands"></i> Testimonies</a>
+        		<a class="nav-link" href="{{route('testimonies')}}"><i class="fa fa-praying-hands"></i> Testimonies</a>
 			</li>	
 
 			<li class="nav-item">
-        <a class="nav-link" href="{{route('live')}}"><i class="fa fa-video"></i> Live</a>
+        		<a class="nav-link" href="{{route('live')}}"><i class="fa fa-video"></i> Live</a>
 			</li>	
 
 
@@ -64,17 +67,20 @@
 				<a class="nav-link" href="{{ route('login') }}">Login</a>
 			</li>
 		@else
-			<li class="nav-item">
+			<li class="nav-item nav-item-dropdown">
 				<a class="nav-link" href="{{route('admin')}}">Admin</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="{{route('logout')}}" onclick="event.preventDefault();
+				<div class="nav-dropdown">
+					<ul class="p-0">
+						<li>
+							<a class="nav-link" href="{{route('logout')}}" onclick="event.preventDefault();
 								document.getElementById('header-logout-form').submit();">Logout</a>
-				</li>
-			<form id="header-logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-					{{ csrf_field() }}
-			</form>
-		</ul>
+						</li>
+						<form id="header-logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+								{{ csrf_field() }}
+						</form>
+					</ul>
+				</div>
+			</li>
 		@endif
 	 </ul>
   </div>

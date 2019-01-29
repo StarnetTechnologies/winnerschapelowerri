@@ -10,16 +10,6 @@
 		@endif
 	</div>
 	
-	<div class="form-group{{ $errors->has('location') ? ' has-error' : '' }}">
-			<label class="control-label">Location:</label>
-		<input id="location" type="text" class="form-control" name="location" placeholder="service location" value="{{ old('location') }}" required autofocus>
-		@if ($errors->has('location'))
-				<span class="help-block">
-					{{ $errors->first('location') }}
-				</span>
-		@endif
-	</div>
-
 	<div class="form-group{{ $errors->has('day') ? ' has-error' : '' }}">
 		<label class="control-label">Days of service</label>
 		<select name="day" id="" class="form-control">

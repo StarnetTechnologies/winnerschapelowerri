@@ -25,20 +25,7 @@
 									</div>
 								</div>
 							</div>
-							
-							<div class="form-group{{ $errors->has('location') ? ' has-error' : '' }}">
-								<div class="row">
-								<label class="col-md-2 control-label">Location:</label>
-									<div class="col-md-10">
-											<input id="location" type="text" class="form-control" name="location" placeholder="service location" value="{{ $service->location }}" required autofocus>
-										@if ($errors->has('location'))
-												<span class="help-block">
-													{{ $errors->first('location') }}
-												</span>
-										@endif
-									</div>
-								</div>
-							</div>
+						
 
 							<div class="form-group{{ $errors->has('day') ? ' has-error' : '' }}">
 								<div class="row">

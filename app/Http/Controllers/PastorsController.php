@@ -35,7 +35,7 @@ class PastorsController extends Controller
 
 
       public function edit($id){
-        return view('pages.admin.edit-pastor')->with('pastor', Pastor::find($id));
+        return view('pages.admin.edit-pastor')->with('pastor', Pastor::findorfail($id));
       }
 
 

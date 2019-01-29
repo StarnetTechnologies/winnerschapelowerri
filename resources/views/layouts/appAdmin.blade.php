@@ -94,6 +94,7 @@
 			</div>
 			@include('layouts.inc.starnet-watermark')
 		</div>
+		<script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
 		@include('layouts.inc.bottom')
 	</body>
 </html>

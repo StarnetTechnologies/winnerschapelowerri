@@ -18,6 +18,7 @@ use App\Gallery;
 use App\Contact;
 use App\Preference;
 use App\Testimony;
+use App\Unit;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -68,7 +69,9 @@ class AppServiceProvider extends ServiceProvider
             'CONTACTS' => Contact::first(),
             'PREF' => Preference::first(),
             'POSTS' => Post::OrderBy('created_at','desc')->take(3)->get(),
-            'TESTIMONIES' => Testimony::OrderBy('created_at','desc')->get()
+            'TESTIMONIES' => Testimony::OrderBy('created_at','desc')->get(),
+            '_TESTIMONIES' => Testimony::class,
+            'UNITS' => Unit::OrderBy('created_at','desc')->get()
         ]);
     }
 

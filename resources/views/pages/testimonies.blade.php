@@ -6,10 +6,13 @@
 @section('styles')
 <style>
     #testimony-form{
-        background-color: #E1E5F0;
+        background-color: rgba(250,0,0,.8);
         padding: 10px;
         border-radius: 0px 20px 0px 20px;
         box-shadow: 0px 20px 20px rgba(0,0,0,.1);
+    }
+    label,.form-group small{
+        color: #fff;
     }
 </style>
 
@@ -24,7 +27,7 @@
 <div class="eclipse-bg">
     <div class="row pt-3">
         <div class="col-md-4 offset-md-1">
-        <h2 class="text-center">Tell us about God's Favour in your Life</h2>
+        <h2 class="text-center theme-color">Tell us about God's Favour in your Life</h2>
             <div id="testimony-form">
                 <form action="{{route('submit.testimony')}}" method="POST">
                         {{ csrf_field() }}
@@ -105,13 +108,10 @@
                 @if($testimonies->count() > 0)
                     @foreach($testimonies as $testimony)
                         <div class="card mb-2">
-                            @if($testimony->title !== null)
-                                <div class="card-header">
-                                    <h4 class="card-title">{{$testimony->title}}</h4>
-                                </div>
-                            @endif
                             <div class="card-body">
-                                
+                                @if($testimony->title !== null)
+                                        <h4 class="card-title">{{$testimony->title}}</h4>
+                                @endif
                                 <blockquote class="blockquote card-body">
                                     <p>{{$testimony->testimony}}</p>
                                     <footer class="blockquote-footer">

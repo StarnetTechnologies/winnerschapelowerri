@@ -29,19 +29,17 @@
                     </div>
                 
                     <p><strong>Welcoming Address:</strong></p>
-                    <div class="alert alert-success">
-                        {{$pref->welcome_address}}
+                        {!!$pref->welcome_address!!}
                     <p class="text-right">
                         <a href="#edit-welcome-address" data-toggle="collapse" data-target="#edit-welcome-address" aria-expanded="true" aria-controls="edit-welcome-address">
                             <i class="fa fa-pen"></i> edit welcome address
                         </a>                   
                     </p>
 
-                    </div>
 
                     <div id="edit-welcome-address" class="form-group collapse admin-panel-collapse" aria-labelledby="" data-parent="#preference-accordion">
                         <label for="" class="label-control">Edit Welcome Address on home page</label>
-                        <textarea class="form-control" name="welcome_address">{{$pref->welcome_address}}</textarea>
+                        <textarea class="ckeditor form-control" name="welcome_address">{{$pref->welcome_address}}</textarea>
                     </div>
                     
                     <p><strong>Front Image:</strong></p>

@@ -1,5 +1,5 @@
 body{
-	background: #fff ;
+	background: #f2f2f2 ;
 	margin: 0;
 	/*overflow-x: hidden;*/
 }
@@ -14,6 +14,7 @@ body{
 [class ^= col-]>*{
 	
 }
+
 .container-fluid,.eclipse-bg{
 	min-height: 70vh;
 }
@@ -21,6 +22,22 @@ body{
 	padding-left: 2px;
 	padding-right: 2px;
 }
+/* Scrollbars */
+div::-webkit-scrollbar
+{
+    width: 5px;
+}
+div::-webkit-scrollbar-track
+ {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 3px;
+}
+div::-webkit-scrollbar-thumb
+ {
+    background: rgb(201, 46, 46); 
+    border-radius: 3px;
+}
+
 a{
 	color: rgb(255,0,0);
 }
@@ -30,6 +47,9 @@ textarea{
 }
 .panel-default{
 	border: 1px solid rgb(255,0,0);
+}
+.card-header{
+	background: inherit !important;
 }
 .theme-color{
 	color:rgb(255,0,0);
@@ -147,7 +167,7 @@ figure.overlay-caption figcaption .caption{
 
 /*Navigation*/
 nav{
-    background:rgba(255,255,255,.9);
+    background:#fff;
     box-shadow: 0px 0px 30px rgba(255,0,0,.8)
 }
 a.navbar-brand,a.nav-link{
@@ -348,6 +368,26 @@ section,.bg-image{
 }
 .post-title-red a:hover{
 	color: #24292E;
+}
+
+.owl-nav{
+	text-align: center;
+	font-size: 40px;
+	color: red;
+}
+
+.owl-nav .owl-prev,
+.owl-nav .owl-next
+{
+	position: absolute;
+	top: 150px;
+	background-color:#fff;
+}
+.owl-nav .owl-next{
+	right: 10px;
+}
+.owl-nav .owl-prev{
+	left: 10px;
 }
 
 	/*****************************************/

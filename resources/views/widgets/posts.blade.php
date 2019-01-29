@@ -2,15 +2,15 @@
 
 @if($POSTS->count() > 0)
 	<div style="padding-top: 20px">
-        <div class="posts-container">
+        <div class="posts-container owl-carousel owl-theme" id="pastors-desk">
             @foreach($POSTS as $post)
-                <div style="margin-bottom: 5px">
+                <div>
                     @include('templates.post')
                 </div> 
             @endforeach
-            <div class="text-right">
+        </div>
+        <div class="text-right">
                 <a href="{{route('posts')}}" class="btn btn-secondary"> See More <span>&raquo;</span></a>
-            </div>
         </div>
 @else
         <div class="row">

@@ -65,7 +65,7 @@ class EventsController extends Controller
       }
 
       public function edit($id){
-        return view('pages.admin.edit-event')->with('event', Event::find($id));
+        return view('pages.admin.edit-event')->with('event', Event::findorfail($id));
       }
   
       public function update(Request $request, $id)
@@ -78,7 +78,7 @@ class EventsController extends Controller
           'end' => 'required',
         ]);
   
-        $event = Event::find($id);
+        $event = Event::findorfail($id);
         $event->title = $request->title;
         $event->description = $request->description;
         $event->location = $request->location;
@@ -123,7 +123,7 @@ class EventsController extends Controller
       }
   
       public function discard($id){
-        $event = Event::find($id);
+        $event = Event::findorfail($id);
         $event->delete();
         $image = public_path().'/storage/images/events/'.$event->image;
         if(file_exists($image)){

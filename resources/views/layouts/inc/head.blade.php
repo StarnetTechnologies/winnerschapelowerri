@@ -15,26 +15,24 @@
 		<meta property="og:image:height" content="225">
 		<meta property="og:image:alt" content="Winners Chapel Owerri">
 		<meta property="og:description" content="Official website of Living Faith Church (Winners Chapel) Owerri">
-		<title>Winners Chapel Owerri - @yield('title')</title>
+		<title>Winners Chapel Owerri &middot; @yield('title')</title>
 		
 		<link rel="shortcut icon" type="image/png" href="{{asset('storage/images/assets/winners-logo.png')}}"/>
 		
 		<!-- Fonts -->
-		<link href="https://fonts.googleapis.com/css?family=Black+Han+Sans" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Hind+Madurai" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">		
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">		<link href="https://fonts.googleapis.com/css?family=Hind+Madurai" rel="stylesheet">
 		
 		<!-- Styles -->
 		<link href="{{ asset('css/vendors/bootstrap.min.css') }}" rel="stylesheet">
 		<link href="{{ asset('css/vendors/animate.css') }}" rel="stylesheet">
 		<link href="{{ asset('css/vendors/toastr.min.css') }}" rel="stylesheet">
+		<link href="{{ asset('css/vendors/owl.carousel.min.css') }}" rel="stylesheet">
 		<link href="{{ asset('css/styles.css') }}" rel="stylesheet">
 		<link href="{{ asset('css/cd.css') }}" rel="stylesheet">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 		<style>
 			body{
-				font-family: 'Hind Madurai', sans-serif;
+				font-family: 'Open Sans', sans-serif, Helvetica, Arial;
 			}
 			.section-heading,.super-font{
 				font-family:'Black Han Sans', sans-serif, cursive;

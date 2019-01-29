@@ -4,19 +4,15 @@
 <style>
 
     #other-posts-container{
-        background-color: #24292E;
         padding: 10px 5px;
     }
     .other-post{
         margin: 5px 0;
-        color: #fff;
     }
     .op-title a{
-    	color: #fff;
  	transition: all .3s ease-in-out;
     }
      .op-title a:hover{
-    	color: #ff0000;
     	text-decoration:none;
     }
 
@@ -38,7 +34,7 @@
         <div class="col-sm-8">
             @if($post !== null)
             <div id="single-post-container">
-                <h2>{{$post->title}}</h2>
+                <h2 class="theme-color">{{$post->title}}</h2>
                  @if($post->image !== null && $post->image !== '')
                 	<div class="text-center">        
                     		<img src="{{$post->imageUrl()}}" alt="{{$post->title}}" width="100%">
@@ -47,7 +43,7 @@
                 <p><img src="{{$PREF->pastor->dpUrl()}}" alt="{{$PREF->pastor->fullname}}" style="width: 70px; height: 70px; border-radius: 50%; border: 2px solid #fff">  {{$PREF->pastor->fullname}} <i class="fa fa-clock"></i> {{$post->created_at->diffForHumans()}} </p>
                 <div class="card border-0">
                     <div class="card-body">
-                        <p>{{$post->body}} </p> 
+                        {!!$post->content('full')!!}
                     </div>
                 </div>                
             </div>
@@ -66,6 +62,7 @@
 	                            <img src="{{$op->imageUrl()}}" alt="{{$op->title}}" width="100%">
 	                           @endif
 	                            <h4 class="op-title"><a href="{{route('single.post',['slug'=>$op->slug])}}">{{$op->title}}</a></h4>
+                                {!!$op->content()!!}
 	                        </div>
 	                    @endforeach
 	                </div>

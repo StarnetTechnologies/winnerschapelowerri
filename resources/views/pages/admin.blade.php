@@ -3,9 +3,7 @@
 	$now = new DateTime();
 ?>
 @section('styles')
-	#contacts-accordion .contact{
-		margin: 4px 0;
-	}
+
 @endsection
 @section('top-widget')
 	<div style="height:80px"></div>
@@ -67,10 +65,30 @@
 		</div>
 	</div>
 
+	<div class="col-12">
+		<div class="col-inner">
+			@include('widgets.admin.units')
+		</div>
+	</div>
 	
-
 	
 	</div>
 
 @endsection
 
+@section('scripts')
+	<script>
+		function approvedTestimoniesOnly(){
+			$('.testimony.approved').show();
+			$('.testimony.pending').hide();
+		}
+		function pendingTestimoniesOnly(){
+			$('.testimony.approved').hide();
+			$('.testimony.pending').show();
+		}
+		function allTestimonies(){
+			$('.testimony.approved').show();
+			$('.testimony.pending').show();
+		}
+	</script>
+@endsection

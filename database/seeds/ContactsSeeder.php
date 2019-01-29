@@ -13,7 +13,7 @@ class ContactsSeeder extends Seeder
     public function run()
     {
         Contact::create([
-            'address' => '97, PH Road, Beside GTBank, Owerri',
+            'address' => '#1, Winners ring road, off Port Harcourt road, Owerri',
             'phone1' => '1234567890',
             'phone2' => '0987654321',
             'email' => 'winners@chapel.com',

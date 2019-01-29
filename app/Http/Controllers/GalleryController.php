@@ -31,7 +31,7 @@ class GalleryController extends Controller
     }
 
     public function update(Request $request,$id){
-        $photo = Gallery::find($id);
+        $photo = Gallery::findorfail($id);
         $photo->caption = $request->caption;
         $photo->save();
 

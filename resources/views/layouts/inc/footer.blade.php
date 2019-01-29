@@ -1,7 +1,7 @@
 <div id="services" style="background-image: url('{{asset('storage/images/assets/church-aud.jpg')}}'); background-attachment: fixed" class="bg-image">
 
 	<div class="text-center" style="background-color: rgba(0,0,0,.8)">
-		<div style="padding: 100px 20px">
+		<div style="padding: 50px 20px">
 			@if($SERVICES->count() > 0)
 				<h2 class="super-font white">Worship with us</h2>
 				<br>
@@ -20,12 +20,55 @@
 	</div>	
 </div>
 
-<footer style="background-color: #24292E; padding: 20px;padding-bottom:0">
-@if($CONTACTS !== null)
+<div>
+	<div class="owl-carousel owl-theme row py-2" id="other-links" style="background-color:#fff">
+			<a href="http://davidabioye.org.ng/" target="_blank">
+				<img src="{{asset('storage/images/assets/da.png')}}" alt="David Abioye" title="David Abioye">
+			</a>
+
+			<a href="http://faithoyedepo.org/" target="_blank">
+				<img src="{{asset('storage/images/assets/fao.png')}}" alt="Faith Oyedepo" title="Faith Oyedepo">
+			</a>
+
+		
+			<a href="http://radio.davidoyedepoministries.org/" target="_blank">
+				<img src="{{asset('storage/images/assets/radio.png')}}" alt="DOMI Radio" title="DOMI Radio">
+			</a>
+
+			<a href="http://domionlinestore.org/" target="_blank">
+				<img src="{{asset('storage/images/assets/book.png')}}" alt="Dominion Bookstore" title="Dominion Bookstore">
+			</a>
+
+		
+			<a href="http://covenantuniversity.edu.ng/" target="_blank">
+				<img src="{{asset('storage/images/assets/cu.png')}}" alt="Convenant University" title="Convenant University">
+			</a>
+
+			<a href="http://lmu.edu.ng/" target="_blank">
+				<img src="{{asset('storage/images/assets/lmu.png')}}" alt="Landmark University" title="Landmark University">
+			</a>
+
+			<a href="http://winners-chapel.org.uk/" target="_blank">
+				<img src="{{asset('storage/images/assets/lfcuk.png')}}" alt="Winners Chapel, UK" title="Winners Chapel, UK">
+			</a>
+
+			<a href="http://winnerschapelny.org/" target="_blank">
+				<img src="{{asset('storage/images/assets/lfus.png')}}" alt="Winners Chapel, New York" title="Winners Chapel, New York">
+			</a>
+
+	</div>
+</div>
+
+<footer style="background-color: #24292E;">
 	<div class="row align-items-center" style="color: #fff">
-		<div class="col-md-4">
+	@if($CONTACTS !== null)
+		<div class="col-md-12">
+			<div id="map" style="width: 100%; height:300px; margin-bottom: 10px; background: url({{asset('storage/images/assets/loading-mapp.gif')}}) center"></div>
+		</div>
+
+
+		<div class="col-md-8">
 			<div class="text-center">
-				<h4 >Stay Connected</h4>
 				<div class="contact" >
 					<i class="fa fa-church" style="font-size: 20px; "></i>  {{$CONTACTS->address}}
 				</div>
@@ -51,27 +94,12 @@
 
 			</div>
 		</div>
+		@endif
 		<div class="col-md-4">
-			<div id="map" style="width: 100%; height:300px; margin-bottom: 10px; background: url({{asset('storage/images/assets/loading-mapp.gif')}}) center no-repeat; background-size: cover"></div>
+			@include('layouts.inc.starnet-watermark')
 		</div>
-
-		<div class="col-md-4">
-			<div class="text-center">
-				<h4 >Other Links</h4>
-				<ul class="other-links">
-					<li><a href="http://faithtabernacle.org.ng/" target="_blank">Headquaters <i class="fa fa-external-link-alt"></i></a> </li>
-					<li><a href="http://www.davidoyedepoministries.org/" target="_blank">David Oyedepo <i class="fa fa-external-link-alt"></i></a> </li>
-					<li><a href="http://faithoyedepo.org/" target="_blank">Faith Oyedepo <i class="fa fa-external-link-alt"></i></a> </li>
-					<li><a href="http://davidabioye.org.ng/" target="_blank">David Abioye <i class="fa fa-external-link-alt"></i></a> </li>
-					<li><a href="http://domimedia.org/" target="_blank"><img src="{{asset('storage/images/assets/domi-radio.png')}}" alt="DOMI radio" width="100%"></a> </li>
-				</ul>
-			</div>
-		</div>
-
 	</div>
-@endif
 
-	@include('layouts.inc.starnet-watermark')
 </footer>
 
 

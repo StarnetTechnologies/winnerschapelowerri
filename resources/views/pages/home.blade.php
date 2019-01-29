@@ -5,9 +5,7 @@ Home
 @section('styles')
 	<link rel="stylesheet" href="{{asset('css/vendors/jssor.css')}}">
 	<style>
-.monthly-theme{
-		font-size: 50px;
-	}
+
 
 		/*Ministries*/
 		#ministries{
@@ -94,12 +92,9 @@ Home
 </section>
 
 <section id="posts" style="background: linear-gradient(#fff,#E1E5F0); background-attachment: fixed;padding:40px 0">
-	<div class="row">
-		<div class="col-md-8 offset-md-2">
+			<div class="px-2">
 			@include('widgets.posts')
-		</div>
-	</div>
-	
+			</div>
 </section>
 
 <section id="domi-radio">

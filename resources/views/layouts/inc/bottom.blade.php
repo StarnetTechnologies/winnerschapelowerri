@@ -2,6 +2,43 @@
 		<!-- Scripts -->
 		<script src="{{ asset('js/vendors/jquery-3.3.1.js') }}"></script>
 		<script src="{{ asset('js/vendors/bootstrap.min.js') }}"></script>
+		<script src="{{ asset('js/vendors/owl.carousel.min.js') }}"></script>
+		<script>
+		$(document).ready(function(){
+			$( ".owl-prev").html('<i class="fa fa-chevron-left"></i>');
+ 			$( ".owl-next").html('<i class="fa fa-chevron-right"></i>');
+
+			$('#other-links').owlCarousel({
+				'items': 8,
+				'margin': 20,
+				'loop': true,
+				'center':true,
+				'autoplay': true,
+				'responsiveClass':true,
+				'responsive':{
+					0:{
+						items:5,
+						nav:true
+					},
+					700:{
+						items:8,
+						nav:false
+					},
+				}
+			});
+
+			$('#pastors-desk,#testimonies').owlCarousel({
+				'items': 1,
+				'margin': 20,
+				'center':true,
+				'loop':true,
+				'nav' : true,
+				'navText':["<i class='fas fa-arrow-circle-left' title='Previous'></i>","<i class='fas fa-arrow-circle-right' title='Next'></i>"],
+			});
+
+
+		});
+		</script>
 		<script src="{{ asset('js/vendors/toastr.min.js') }}"></script>
 		<script>
 			toastr.options = {
@@ -36,12 +73,9 @@
 		<script>
 			// Initialize and add the map
 				function initMap() {
-				// The location of Uluru
-				var loc = {lat:5.486865, lng: 7.018988};
-				// The map, centered at Uluru
+				var loc = {lat:5.481034, lng: 7.013666};
 				var map = new google.maps.Map(
 					document.getElementById('map'), {zoom: 17, center: loc});
-				// The marker, positioned at Uluru
 				var marker = new google.maps.Marker({position: loc, map: map});
 				}
 	    </script>

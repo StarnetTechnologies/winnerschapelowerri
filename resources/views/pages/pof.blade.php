@@ -24,13 +24,7 @@
         color: red;
         font-weight: bolder;
     }
-    .card:hover .card-title{
-        color: #fff;
-    }
-    .card:hover .card-header{
-        background: linear-gradient(to bottom right,rgba(200,0,0,1),rgba(0,0,0,1));
-        color: #fff;
-    } 
+
 </style>
 
 @endsection
@@ -42,7 +36,7 @@
 @section('content')
 
 <div class="eclipse-bg">
-    <section id="mandate" style="padding: 20px 0; background-color: #DCEBF9">
+    <section id="mandate" style="padding: 20px 0; background-color: rgba(200,0,0,.2)">
         <div class="row">
             <div class="col-md-10 offset-md-1">
                 @include('widgets.mandate')

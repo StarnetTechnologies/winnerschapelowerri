@@ -17,7 +17,7 @@ class CreatePreferencesTable extends Migration
             $table->increments('id');
             $table->longText('welcome_address');
             $table->string('pastor_id');
-            $table->string('front_image');
+            $table->string('front_image')->nullable();
             $table->timestamps();
         });
     }

@@ -40,7 +40,7 @@ class StreamsController extends Controller
     } 
 
     public function edit($id){
-        return view('pages.admin.edit-stream')->with('stream',Stream::find($id));
+        return view('pages.admin.edit-stream')->with('stream',Stream::findorfail($id));
     }
     public function update(Request $request,$id){
         $this->validate($request,
@@ -49,7 +49,7 @@ class StreamsController extends Controller
             'description' => 'required' ]
         );
 
-        $stream = Stream::find($id);
+        $stream = Stream::findorfail($id);
         $stream->title = $request->title;
         $stream->url = $request->url;
         $stream->description = $request->description;
@@ -59,7 +59,7 @@ class StreamsController extends Controller
     }
 
     public function discard($id){
-        $stream = Stream::find($id);
+        $stream = Stream::findorfail($id);
         $stream->delete();
 
         return redirect()->route('index')->with(['success' => 'Stream <strong>'.$stream->title.'deleted']);
